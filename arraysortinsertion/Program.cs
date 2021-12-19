@@ -8,25 +8,19 @@ namespace arraysortinsertion
 {
     internal class Program
     {
-        static void Swap(ref int a, ref int b)
-        {
-            int num = a;
-            a = b;
-            b = num;
-        }
 
         static int[] Insertion(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
-                int c = array[i];
-                int d = i;
-
-                while ((d > 0) && (array[d - 1] > c)) 
+                int num = array[i];
+                int j = i;
+                while (j > 0 && num < array[j - 1])
                 {
-                    Swap(ref array[d - 1], ref array[d]);
-                    d--;
+                    array[j] = array[j - 1];
+                    j--;
                 }
+                array[j] = num;
             }
             return array;
         }
